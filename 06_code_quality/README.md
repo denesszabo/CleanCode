@@ -16,6 +16,7 @@ npm run build
 npm run test
 
 # calculate code complexity report with plato
-plato -r -d report dist
+# the report is in the `report/index.html` file
+npm run plato
 
 ```
