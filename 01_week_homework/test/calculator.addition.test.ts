@@ -1,6 +1,6 @@
 import { Calculator } from "../src/calculator";
 
-describe("Calculator tests", () => {
+describe("Calculator addition function tests", () => {
     let calculator: Calculator;
     const testCases = [
         {
