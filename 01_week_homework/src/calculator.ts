@@ -4,4 +4,8 @@ export class Calculator {
         return a + b;
     }
 
+    public Sub(a: number, b: number): number {
+        return a - b;
+    }
+
 }
