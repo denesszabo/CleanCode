@@ -15,5 +15,8 @@ export class Calculator {
     public Divide(a: number, b: number): number {
         return a / b;
     }
+    public Sqrt(a: number): number {
+        return Math.sqrt(a);
+    }
 
 }
