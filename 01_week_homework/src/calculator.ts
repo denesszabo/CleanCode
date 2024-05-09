@@ -12,4 +12,11 @@ export class Calculator {
         return a * b;
     }
 
+    public Divide(a: number, b: number): number {
+        if (b === 0) {
+            return Infinity;
+        }
+        return a / b;
+    }
+
 }
