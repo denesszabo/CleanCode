@@ -77,7 +77,7 @@ describe("Calculator power function tests", () => {
         {
             a: 2.2,
             b: 10,
-            expectedResult: 2655.9922791424024, // :-O
+            expectedResult: 2655.9922791424024,
         },
         {
             a: 2.2,
