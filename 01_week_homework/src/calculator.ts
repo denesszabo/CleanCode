@@ -19,4 +19,8 @@ export class Calculator {
         return Math.sqrt(a);
     }
 
+    public Pow(a: number, b: number): number {
+        // a - the base, b - the exponent.
+        return Math.pow(a, b);
+    }
 }
