@@ -9,6 +9,11 @@ describe("Calculator tests", () => {
             expectedResult: 8,
         },
         {
+            a: 3,
+            b: 5,
+            expectedResult: 8,
+        },
+        {
             a: 5,
             b: -3,
             expectedResult: 2,
@@ -38,10 +43,26 @@ describe("Calculator tests", () => {
             b: 5,
             expectedResult: 3,
         },
+        {
+            a: 5.2,
+            b: 3.3,
+            expectedResult: 8.5,
+        },
+        // Overflow. Needs more protection in the calculator?
+        // Yes, test brings this issue out in the second floating point test case.
+        {
+            a: 5.2,
+            b: -3.3,
+            expectedResult: 5.2 - 3.3, // 1.9000000000000004!
+        },
+        {
+            a: -3.3,
+            b: 5.2,
+            expectedResult: -3.3 + 5.2, // 1.9000000000000004!
+        },
     ];
 
     beforeEach(() => {
-        console.log('new calculator');
         calculator = new Calculator();
     })
 
