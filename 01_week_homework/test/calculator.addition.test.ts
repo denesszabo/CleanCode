@@ -53,12 +53,12 @@ describe("Calculator addition function tests", () => {
         {
             a: 5.2,
             b: -3.3,
-            expectedResult: 5.2 - 3.3, // 1.9000000000000004!
+            expectedResult: 1.9000000000000004,
         },
         {
             a: -3.3,
             b: 5.2,
-            expectedResult: -3.3 + 5.2, // 1.9000000000000004!
+            expectedResult: 1.9000000000000004, // !
         },
     ];
 

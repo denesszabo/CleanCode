@@ -48,17 +48,17 @@ describe("Calculator multiplication function tests", () => {
         {
             a: 5.2,
             b: 3.3,
-            expectedResult: 5.2 * 3.3,
+            expectedResult: 17.16,
         },
         {
             a: 5.2,
             b: -3.3,
-            expectedResult: 5.2 * -3.3,
+            expectedResult: -17.16,
         },
         {
             a: -3.3,
             b: 5.2,
-            expectedResult: -3.3 * 5.2,
+            expectedResult: -17.16,
         },
     ];
 

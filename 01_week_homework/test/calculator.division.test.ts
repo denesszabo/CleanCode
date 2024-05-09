@@ -52,17 +52,17 @@ describe("Calculator division function tests", () => {
         {
             a: 5.2,
             b: 3.3,
-            expectedResult: 5.2 / 3.3,
+            expectedResult: 1.575757575757576,
         },
         {
             a: 5.2,
             b: -3.3,
-            expectedResult: -5.2 / 3.3,
+            expectedResult: -1.575757575757576,
         },
         {
             a: -3.3,
             b: 5.2,
-            expectedResult: -3.3 / 5.2,
+            expectedResult: -0.6346153846153846,
         },
     ];
 
