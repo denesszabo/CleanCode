@@ -8,4 +8,8 @@ export class Calculator {
         return a - b;
     }
 
+    public Multiply(a: number, b: number): number {
+        return a * b;
+    }
+
 }
