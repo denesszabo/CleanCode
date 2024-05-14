@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Generate Conversion report tests happy part of the generations should generate conversion report 1`] = `
+"Conversion Report:
+0.26
+0.26
+0.26
+0.26
+0.26
+0.26
+0.26
+0.26
+0.26
+0.26"
+`;
