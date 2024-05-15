@@ -1,10 +1,14 @@
 import { OutOfRangeError } from "../src/error/OutOfRangeError";
 import {DatabaseClient} from "../src/DatabaseClient";
+import {DateValidator} from "../src/DateValidator";
+
+const dateValidator = new DateValidator();
+
 describe('DatabaseClient tests', () => {
     let sut: DatabaseClient;
 
     beforeEach(() => {
-        sut = new DatabaseClient();
+        sut = new DatabaseClient(dateValidator);
     })
 
 
@@ -23,16 +27,15 @@ describe('DatabaseClient tests', () => {
     describe('Sad path', () => {
 
         it.each([
-            { year: 2019, month: 0},
-            { year: 2010, month: 11},
             { year: 2055, month: 5},
+            { year: -1, month: 5},
         ])('should return with exception for $year - $month', ({year, month}) => {
             // Arrange
             const expectedError = new OutOfRangeError('Invalid year given');
             // const result = sut.getWorkdays(year, month);
 
             // Assert
-            expect(() =>sut.getWorkdays(year, month)).toThrow(expectedError);
+            expect(() => sut.getWorkdays(year, month)).toThrow(expectedError);
         });
 
         it.each([

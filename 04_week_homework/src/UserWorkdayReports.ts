@@ -1,11 +1,14 @@
+import {DatabaseClient} from "./DatabaseClient";
+
 export class UserWorkdayReports {
 
+    public static readonly FIRM_EXIST_SINCE = 2020;
     private workdays: string[] = [];
 
     public constructor(private dbClient: DatabaseClient) {}
 
-    public setYearMonth(date: string): void {
-        this.workdays = this.dbClient.getWorkDaysForMonth(date);
+    public setYearMonth(year: number, month: number): void {
+        this.workdays = this.dbClient.getWorkdays(year, month);
     }
 
     public processUserData(
