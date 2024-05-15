@@ -12,9 +12,25 @@ export class DatabaseClient {
         this.dateValidator.validateYear(year);
         this.dateValidator.validateMonth(month);
         const d = new Date();
-        d.setFullYear(year, month - 1, 1);
+        d.setFullYear(year, month, 1);
 
-        return [];
+        let workDays = [];
+        let i = 0;
+        let currentMonth: number = month;
+        while (i < DatabaseClient.MAX_WORKDAYS_IN_MONTH && currentMonth == month) {
+
+            // Don't work Saturday and Sunday.
+            if (d.getDay() !== 0 && d.getDay() !== 6) {
+                workDays.push(String(d.getDate()));
+                i++;
+            }
+            d.setDate(d.getDate() + 1);
+            currentMonth = d.getMonth();
+        }
+        console.log('month: ' + month + ' - currentMonth: ' + currentMonth);
+        console.log('workdays length: ' + workDays.length);
+        console.log(workDays);
+        return workDays;
     }
 
 
