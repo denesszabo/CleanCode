@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "tsc -p tsconfig.build.json",
-    "plato": "plato -r -d report dist"
+    "plato": "plato -r -d report dist",
+    "report": "npm run build && npm run plato"
   },
   "keywords": [],
   "author": "",
