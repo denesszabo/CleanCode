@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Employee tests Should return all employee : Amanda 1`] = `
+[
+  Employee {
+    "name": "John",
+    "salary": 10000,
+  },
+  Employee {
+    "name": "Bon",
+    "salary": 8000,
+  },
+  Employee {
+    "name": "Amanda",
+    "salary": 11000,
+  },
+]
+`;
+
+exports[`Employee tests Should return all employee : Bon 1`] = `
+[
+  Employee {
+    "name": "John",
+    "salary": 10000,
+  },
+  Employee {
+    "name": "Bon",
+    "salary": 8000,
+  },
+  Employee {
+    "name": "Amanda",
+    "salary": 11000,
+  },
+]
+`;
+
+exports[`Employee tests Should return all employee : John 1`] = `
+[
+  Employee {
+    "name": "John",
+    "salary": 10000,
+  },
+  Employee {
+    "name": "Bon",
+    "salary": 8000,
+  },
+  Employee {
+    "name": "Amanda",
+    "salary": 11000,
+  },
+]
+`;
+
+exports[`Employee tests Should return the employee John: John 1`] = `
+Employee {
+  "name": "John",
+  "salary": 10000,
+}
+`;
