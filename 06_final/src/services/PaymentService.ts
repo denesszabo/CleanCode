@@ -5,8 +5,11 @@ import {FinancialApiClientInterface} from "../abstractions/FinancialApiClientInt
 import {PersonInterface} from "../abstractions/PersonInterface";
 
 export class PaymentService implements PaymentServiceInterface {
+    private financialApiClient: FinancialApiClientInterface;
 
-    constructor(private financialApiClient: FinancialApiClientInterface) {}
+    constructor(financialApiClient: FinancialApiClientInterface) {
+        this.financialApiClient = financialApiClient;
+    }
 
     public async payCourse(course: CourseInterface, student: PersonInterface): Promise<void> {
         const orderId = this.getOrderId(course, student);

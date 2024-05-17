@@ -2,15 +2,19 @@ import {CourseInterface} from "../abstractions/CourseInterface";
 import {StudentInterface} from "../abstractions/StudentInterface";
 
 export class Course implements CourseInterface {
-    protected readonly courseCode: string
-    protected students: StudentInterface[] = []
+    courseCode: string;
+    title: string;
+    startDate: Date;
+    lengthInWeeks: number;
+    cost: number;
+    students: StudentInterface[] = []
 
     constructor(
         courseCode: string,
-        private title: string,
-        private startDate: Date,
-        private lengthInWeeks: number,
-        private cost: number
+        title: string,
+        startDate: Date,
+        lengthInWeeks: number,
+        cost: number
     ) {
         this.courseCode = courseCode;
         this.title = title;

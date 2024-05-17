@@ -1,6 +1,12 @@
 import {StudentInterface} from "./StudentInterface";
 
 export interface CourseInterface {
+    courseCode: string;
+    title: string;
+    startDate: Date;
+    lengthInWeeks: number;
+    cost: number;
+    students: StudentInterface[]
 
     getCourseCode(): string
 

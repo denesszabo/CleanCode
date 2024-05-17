@@ -2,7 +2,7 @@ import {FinancialApiClientInterface} from "../abstractions/FinancialApiClientInt
 import {FinancialServiceInterface} from "../abstractions/FinancialServiceInterface";
 
 export abstract class FinancialApiClientBase implements FinancialApiClientInterface {
-    protected financialService: FinancialServiceInterface;
+    financialService: FinancialServiceInterface;
 
     constructor(financialService: FinancialServiceInterface) {
         this.financialService = financialService;

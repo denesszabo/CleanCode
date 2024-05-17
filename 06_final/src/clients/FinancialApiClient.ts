@@ -3,8 +3,15 @@ import {OrderNotFoundError} from "../errors/OrderNotFoundError";
 import {NetworkError} from "../errors/NetworkError";
 import {UnknownError} from "../errors/UnknownError";
 import {InsufficientBalanceError} from "../errors/InsufficientBalanceError";
+import {FinancialServiceInterface} from "../abstractions/FinancialServiceInterface";
 
 export class FinancialApiClient extends FinancialApiClientBase {
+    financialService: FinancialServiceInterface;
+
+    constructor(financialService: FinancialServiceInterface) {
+        super(financialService);
+        this.financialService = financialService;
+    }
 
     public async getOrderStatus(orderId: string): Promise<any> {
         try {
