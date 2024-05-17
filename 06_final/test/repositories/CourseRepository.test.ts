@@ -4,6 +4,7 @@ import {mock, mockReset} from "jest-mock-extended";
 import {NotFoundError} from "../../src/errors/NotFoundError";
 import {Course} from "../../src/models/Course";
 import {DatabaseError} from "../../src/errors/DatabaseError";
+import {CourseStatistics} from "../../src/models/CourseStatistics";
 
 const mockDbClient = mock<DbClient>();
 describe('CourseRepository tests', () => {
@@ -62,6 +63,28 @@ describe('CourseRepository tests', () => {
             // Assert
             expect(mockDbClient.addCourse).toBeCalledTimes(1);
             expect(mockDbClient.addCourse).toHaveBeenCalledWith(course);
+        })
+
+        it('should generate course statistics', async () => {
+            // Arrange
+            const courseCode = 'C002X';
+            const expectedCourse = new Course(
+                courseCode,
+                'Computer Science: Drupal for dummies',
+                new Date('2024-01-01'),
+                10,
+                300000
+            );
+
+            mockDbClient.getCourse.mockResolvedValue(expectedCourse);
+
+            // Act
+            const result = await sut.getCourseStatistics(courseCode);
+
+            // Assert
+            expect(mockDbClient.getCourse).toBeCalledTimes(1);
+            expect(mockDbClient.getCourse).toHaveBeenCalledWith(courseCode);
+            expect(result instanceof CourseStatistics).toBe(true);
         });
     })
 
@@ -96,6 +119,21 @@ describe('CourseRepository tests', () => {
             // Act
             await expect(sut.addCourse(course)).rejects.toThrow(error);
 
+        })
+
+        it('should not generate course statistics for a non existing course', async () => {
+            // Arrange
+            const courseCode = 'C002X';
+            const error = new DatabaseError("Database error");
+            mockDbClient.getCourse.mockImplementation(() => {
+                throw error
+            })
+
+            // Act
+
+            // Assert
+            // Act
+            await expect(sut.getCourseStatistics(courseCode)).rejects.toThrow(error);
         });
     })
 
