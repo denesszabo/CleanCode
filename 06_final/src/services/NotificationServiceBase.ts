@@ -18,7 +18,6 @@ export abstract class NotificationServiceBase implements NotificationServiceInte
         services.forEach((service) => this.addService(service));
     }
 
-    public sendNotification(message: string): void {
-        this.services.forEach(service => service.sendNotification(message));
-    };
+    public abstract sendNotification(message: string): void;
+
 }

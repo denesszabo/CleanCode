@@ -3,20 +3,28 @@ import {DbClientInterface} from "../abstractions/DbClientInterface";
 import {Course} from "../models/Course";
 import {NotFoundError} from "../errors/NotFoundError";
 import {delay} from "../utils/delay";
-
+import {courseData} from "../data/courses";
+import {StudentInterface} from "../abstractions/StudentInterface";
 
 export class DbClient implements DbClientInterface {
-    protected courseRepository: Course[] = [];
+    protected courseRepository: CourseInterface[] = [];
 
     constructor() {
         this.fillUpCourseRepository();
     }
 
     private fillUpCourseRepository() {
-        this.courseRepository.push(new Course('INF101', 'Introduction to Computer Science 1'));
-        this.courseRepository.push(new Course('INF102', 'Introduction to Computer Science 2'));
-        this.courseRepository.push(new Course('C001', 'Computer Science: Clean code for dummies'));
-        this.courseRepository.push(new Course('C002', 'Computer Science: Drupal for dummies'));
+        courseData.forEach((data) => {
+            this.courseRepository.push(new Course(
+                data.code, data.title, new Date(data.startDate), data.lengthInWeeks, data.cost
+            ));
+        });
+    }
+
+    public async addCourse(course: CourseInterface): Promise<any> {
+        await delay(1000);
+        this.courseRepository.push(course);
+        // May throw a DatabaseError.
     }
 
     public async getAllCourses(): Promise<CourseInterface[]> {
@@ -38,5 +46,15 @@ export class DbClient implements DbClientInterface {
         }
 
         throw new NotFoundError('Course not found');
+    }
+
+    public async assignCourseToStudent(course: CourseInterface, student: StudentInterface): Promise<any> {
+        await delay(1000);
+        try {
+            // @todo Save the course - user relation to the database
+        }
+        catch (e) {
+
+        }
     }
 }
