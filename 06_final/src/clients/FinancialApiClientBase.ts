@@ -2,10 +2,13 @@ import {FinancialApiClientInterface} from "../abstractions/FinancialApiClientInt
 import {FinancialServiceInterface} from "../abstractions/FinancialServiceInterface";
 
 export abstract class FinancialApiClientBase implements FinancialApiClientInterface {
+    protected financialService: FinancialServiceInterface;
 
-    protected constructor(private financialService: FinancialServiceInterface) {
-    };
+    constructor(financialService: FinancialServiceInterface) {
+        this.financialService = financialService;
+    }
 
-    abstract getOrderStatus(orderId: number): Promise<number>;
-    abstract payOrder(orderId: number): Promise<void>;
+    abstract getOrderStatus(orderId: string): Promise<any>
+
+    abstract payOrder(orderId: string, data: {}): Promise<void>;
 }

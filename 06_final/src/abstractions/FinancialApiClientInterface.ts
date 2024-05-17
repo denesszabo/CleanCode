@@ -2,7 +2,7 @@ import {FinancialServiceInterface} from "./FinancialServiceInterface";
 
 export interface FinancialApiClientInterface {
 
-    getOrderStatus(orderId: number): Promise<number>;
+    getOrderStatus(orderId: string): Promise<any>;
 
-    payOrder(orderId: number): Promise<void>;
+    payOrder(orderId: string, data: {}): Promise<void>;
 }

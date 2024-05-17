@@ -1,11 +1,10 @@
 import {CourseInterface} from "./CourseInterface";
 import {StudentInterface} from "./StudentInterface";
+import {PersonInterface} from "./PersonInterface";
 
 export interface PaymentServiceInterface {
 
-    constructor(financialApiClient: FinancialApiClientInterface);
+    payCourse(course: CourseInterface, student: PersonInterface): Promise<void>;
 
-    payCourse(course: CourseInterface, student: StudentInterface): Promise<void>;
-
-    getCoursePaymentInfo(course: CourseInterface, student: StudentInterface): Promise<any>;
+    getCoursePaymentInfo(course: CourseInterface, student: PersonInterface): Promise<any>;
 }

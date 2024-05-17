@@ -1,7 +1,7 @@
 export interface FinancialServiceInterface {
 
-    getOrderStatus(orderId: number): Promise<number>;
+    getOrderStatus(orderId: string): Promise<number>;
 
-    payOrder(orderId: number, data: {}): Promise<void>;
+    payOrder(orderId: string, data: {}): Promise<void>;
 
 }
