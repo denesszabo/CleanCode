@@ -1,5 +1,6 @@
 import {DbClientInterface} from "./DbClientInterface";
 import {CourseInterface} from "./CourseInterface";
+import {CourseStatisticsInterface} from "./CourseStatisticsInterface";
 
 export interface CourseRepositoryInterface {
 
@@ -9,5 +10,5 @@ export interface CourseRepositoryInterface {
 
     getCourse(courseCode: string): Promise<CourseInterface>;
 
-    // @todo getCourseStatistics(courseCode: string): Promise<CourseStatisticsInterface>;
+    getCourseStatistics(courseCode: string): Promise<CourseStatisticsInterface>;
 }

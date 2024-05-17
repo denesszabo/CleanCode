@@ -1,6 +1,7 @@
 import {CourseRepositoryInterface} from "./CourseRepositoryInterface";
 import {DbClientInterface} from "./DbClientInterface";
 import {CourseInterface} from "./CourseInterface";
+import {CourseStatisticsInterface} from "./CourseStatisticsInterface";
 
 export abstract class CourseRepositoryBase implements CourseRepositoryInterface {
 
@@ -12,4 +13,5 @@ export abstract class CourseRepositoryBase implements CourseRepositoryInterface 
 
     abstract getCourse(courseCode: string): Promise<CourseInterface>;
 
+    abstract getCourseStatistics(courseCode: string): Promise<CourseStatisticsInterface>;
 }
